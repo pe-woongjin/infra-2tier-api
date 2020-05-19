@@ -6,7 +6,7 @@ resource "aws_launch_template" "api-lt" {
   vpc_security_group_ids  = [ aws_security_group.api-sg.id ]
 
   iam_instance_profile {
-    name = "comp-codedeploy-ec2-role"
+    name = var.ec2_role_name
   }
 
   user_data = base64encode(templatefile("./ud-startup-health.tpl", {}))

@@ -151,7 +151,7 @@ variable "nat_id" {
 variable "ec2_role_name" {
   description = "ec2 role name"
   type = string
-  default = "codedeploy-ec2-role"
+  default = "codedeploy-ec2-role-profile"
 }
 
 variable "cd_role_name" {
