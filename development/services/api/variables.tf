@@ -10,7 +10,7 @@ variable "team_name" {
 variable "service_name" {
   description = "name of service"
   type = string
-  default = "ming"
+  default = "ming-2t"
 }
 
 variable "service_version" {
@@ -65,7 +65,7 @@ variable "api-sn-id" {
 # Data
 # ######################
 variable "vpc_id" {
-  description = "ming-apne2-prd-vpc id"
+  description = "ming-2t-apne2-prd-vpc id"
   type = string
   default = "vpc-0cee52b990d29d6a2"
 }

@@ -10,7 +10,7 @@ variable "team_name" {
 variable "service_name" {
   description = "name of service"
   type = string
-  default = "ming"
+  default = "ming-2t"
 }
 
 variable "service_version" {
@@ -113,19 +113,19 @@ variable "private_rt_tag_names" {
 # Data
 # ######################
 variable "vpc_id" {
-  description = "ming-apne2-prd-vpc id"
+  description = "ming-2t-apne2-prd-vpc id"
   type = string
   default = "vpc-0cee52b990d29d6a2"
 }
 
 variable "igw_id" {
-  description = "ming-apne2-prd-igw id"
+  description = "ming-2t-apne2-prd-igw id"
   type = string
   default = "igw-0aad41050674feda8"
 }
 
 variable "nat_id" {
-  description = "ming-apne2-prd-nat id"
+  description = "ming-2t-apne2-prd-nat id"
   type = string
   default = "nat-09a23e75ee31034ad"
 }

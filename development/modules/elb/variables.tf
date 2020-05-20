@@ -36,9 +36,9 @@ variable "api-ming2-tg8080" {
 # Data
 # ######################
 variable "alb_id" {
-  description = "ming-apne2-prd-alb id"
+  description = "ming-2t-apne2-prd-alb id"
   type = string
-  default = "arn:aws:elasticloadbalancing:ap-northeast-2:144149479695:loadbalancer/app/ming-apne2-prd-alb/7b1470fd232d9d3b"
+  default = "arn:aws:elasticloadbalancing:ap-northeast-2:144149479695:loadbalancer/app/ming-2t-apne2-prd-alb/5ddb2fda7c03ddab"
 }
 
 variable "acm_arn" {
