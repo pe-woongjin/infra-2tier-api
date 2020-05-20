@@ -1,6 +1,6 @@
 resource "aws_autoscaling_group" "api-ming1-asg" {
   name                  = "${local.resrc_prefix_nm}-api-ming1-asg"
-  vpc_zone_identifier   = [ aws_subnet.api-sn[0].id, aws_subnet.api-sn[1].id ]
+  vpc_zone_identifier   = var.api-sn-id
 
   launch_template {
     id      = aws_launch_template.api-lt.id
@@ -22,7 +22,7 @@ resource "aws_autoscaling_group" "api-ming1-asg" {
 
 resource "aws_autoscaling_group" "api-ming2-asg" {
   name                  = "${local.resrc_prefix_nm}-api-ming2-asg"
-  vpc_zone_identifier   = [ aws_subnet.api-sn[0].id, aws_subnet.api-sn[1].id ]
+  vpc_zone_identifier   = var.api-sn-id
 
   launch_template {
     id      = aws_launch_template.api-lt.id

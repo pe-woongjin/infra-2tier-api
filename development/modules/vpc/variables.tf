@@ -10,7 +10,7 @@ variable "team_name" {
 variable "service_name" {
   description = "name of service"
   type = string
-  default = "base"
+  default = "ming"
 }
 
 variable "service_version" {
@@ -32,7 +32,7 @@ variable "region_nm" {
 }
 
 locals {
-  resrc_prefix_nm =  "${var.service_name}-${var.region_nm}-${var.environment}"
+  resrc_prefix_nm = "${var.service_name}-${var.region_nm}-${var.environment}"
 }
 
 
@@ -43,7 +43,7 @@ locals {
 variable "pri_sn_list" {
   description = "private subnets"
   type = list(map(string))
-  default =[
+  default = [
     {
       cidr_block = "10.40.20.0/24",
       availability_zone = "ap-northeast-2a",
@@ -57,11 +57,29 @@ variable "pri_sn_list" {
   ]
 }
 
+# ui subnet
+variable "ui_sn_list" {
+  description = "private ui subnets"
+  type = list(map(string))
+  default = [
+    {
+      cidr_block = "10.40.50.0/24",
+      availability_zone = "ap-northeast-2a",
+      Name = "ui-1a-sn"
+    },
+    {
+      cidr_block = "10.40.51.0/24",
+      availability_zone = "ap-northeast-2c",
+      Name = "ui-1c-sn"
+    }
+  ]
+}
+
 # api subnet
 variable "api_sn_list" {
   description = "private api subnets"
   type = list(map(string))
-  default =[
+  default = [
     {
       cidr_block = "10.40.60.0/24",
       availability_zone = "ap-northeast-2a",
@@ -83,7 +101,7 @@ variable "api_sn_list" {
 variable "private_rt_tag_names" {
   description = "tag name for private route table"
   type = list(map(string))
-  default =[
+  default = [
     {
       Name = "pri-rt"
     }
@@ -92,76 +110,22 @@ variable "private_rt_tag_names" {
 
 
 # ######################
-# Launch Template
-# ######################
-# api launch template
-variable "api_lt" {
-  description = "api launch template"
-  type = map(string)
-  default ={
-    "id" = "ami-08ccf8b9f68211181"
-    "type" = "t3.small"
-    "key_name" = "comp-prod-keypair"
-    "min_size" = 0
-    "max_size" = 2
-  }
-}
-
-
-# ######################
-# Route 53
-# ######################
-# route 53 host name
-variable "hosts" {
-  description = "route 53 host name"
-  type = map(string)
-  default ={
-    "api" = "api-2tier.mingming.shop"
-  }
-}
-
-
-# ######################
 # Data
 # ######################
-variable "alb_id" {
-  description = "base-apne2-prd-alb id"
-  type = string
-  default = "arn:aws:elasticloadbalancing:ap-northeast-2:144149479695:loadbalancer/app/base-apne2-prd-alb/ad80c6ca2f9aaa69"
-}
-
 variable "vpc_id" {
-  description = "base-apne2-prd-vpc id"
+  description = "ming-apne2-prd-vpc id"
   type = string
   default = "vpc-0cee52b990d29d6a2"
 }
 
 variable "igw_id" {
-  description = "base-apne2-prd-igw id"
+  description = "ming-apne2-prd-igw id"
   type = string
   default = "igw-0aad41050674feda8"
 }
 
 variable "nat_id" {
-  description = "base-apne2-prd-nat id"
+  description = "ming-apne2-prd-nat id"
   type = string
   default = "nat-09a23e75ee31034ad"
-}
-
-variable "ec2_role_name" {
-  description = "ec2 role name"
-  type = string
-  default = "codedeploy-ec2-role-profile"
-}
-
-variable "cd_role_name" {
-  description = "code deploy role name"
-  type = string
-  default = "codedeploy-role"
-}
-
-variable "acm_arn" {
-  description = "acm arn"
-  type = string
-  default = "arn:aws:acm:ap-northeast-2:144149479695:certificate/efc7a467-526d-4476-b91f-ef69f146c6a6"
 }

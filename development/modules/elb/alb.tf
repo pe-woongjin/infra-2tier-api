@@ -5,23 +5,39 @@ resource "aws_alb_listener" "alb-listener443" {
   certificate_arn     = var.acm_arn
 
   default_action {
-    target_group_arn = aws_alb_target_group.api-ming1-tg8080.arn
+    target_group_arn = var.api-ming1-tg8080.arn
     type             = "forward"
   }
 }
 
 resource "aws_alb_listener_rule" "alb-listener443-api-rule" {
   listener_arn  = aws_alb_listener.alb-listener443.arn
-  depends_on    = [ aws_alb_target_group.api-ming1-tg8080 ]
+  depends_on    = [ var.api-ming1-tg8080 ]
 
   action {
-    target_group_arn  = aws_alb_target_group.api-ming1-tg8080.arn
+    target_group_arn  = var.api-ming1-tg8080.arn
     type              = "forward"
   }
 
   condition {
     host_header {
       values = [ var.hosts.api ]
+    }
+  }
+}
+
+resource "aws_alb_listener_rule" "alb-listener443-ui-rule" {
+  listener_arn  = aws_alb_listener.alb-listener443.arn
+  depends_on    = [ var.ui-ming1-tg8080 ]
+
+  action {
+    target_group_arn  = var.ui-ming1-tg8080.arn
+    type              = "forward"
+  }
+
+  condition {
+    host_header {
+      values = [ var.hosts.ui ]
     }
   }
 }
