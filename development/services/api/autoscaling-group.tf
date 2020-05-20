@@ -7,7 +7,7 @@ resource "aws_autoscaling_group" "api-ming1-asg" {
     version = "$Latest"
   }
 
-  target_group_arns     = [ aws_alb_target_group.api-ming1-tg8080.arn ]
+  target_group_arns     = [ aws_alb_target_group.api-a-tg8080.arn ]
   health_check_type     = "ELB"
 
   min_size              = var.api_lt.min_size
@@ -29,7 +29,7 @@ resource "aws_autoscaling_group" "api-ming2-asg" {
     version = "$Latest"
   }
 
-  target_group_arns     = [ aws_alb_target_group.api-ming2-tg8080.arn ]
+  target_group_arns     = [ aws_alb_target_group.api-b-tg8080.arn ]
   health_check_type     = "ELB"
 
   min_size              = var.api_lt.min_size

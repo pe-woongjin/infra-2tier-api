@@ -21,12 +21,12 @@ module "elb" {
   source = "./modules/elb"
 
   # ui target group
-  ui-ming1-tg8080 = module.ui.ui-ming1-tg8080
-  ui-ming2-tg8080 = module.ui.ui-ming2-tg8080
+  ui-a-tg80 = module.ui.ui-a-tg80
+  ui-b-tg80 = module.ui.ui-b-tg80
 
   # api target group
-  api-ming1-tg8080 = module.api.api-ming1-tg8080
-  api-ming2-tg8080 = module.api.api-ming2-tg8080
+  api-a-tg8080 = module.api.api-a-tg8080
+  api-b-tg8080 = module.api.api-b-tg8080
 }
 
 module "vpc" {

@@ -15,19 +15,19 @@ variable "hosts" {
 # ######################
 # Output
 # ######################
-variable "ui-ming1-tg8080" {
+variable "ui-a-tg80" {
   description = "target group of ui(for blue/green)"
 }
 
-variable "ui-ming2-tg8080" {
+variable "ui-b-tg80" {
   description = "target group2 of ui(for blue/green)"
 }
 
-variable "api-ming1-tg8080" {
+variable "api-a-tg8080" {
   description = "target group of api(for blue/green)"
 }
 
-variable "api-ming2-tg8080" {
+variable "api-b-tg8080" {
   description = "target group2 of api(for blue/green)"
 }
 

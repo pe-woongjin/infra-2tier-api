@@ -7,7 +7,7 @@ resource "aws_autoscaling_group" "ui-ming1-asg" {
     version = "$Latest"
   }
 
-  target_group_arns     = [ aws_alb_target_group.ui-ming1-tg8080.arn ]
+  target_group_arns     = [ aws_alb_target_group.ui-a-tg80.arn ]
   health_check_type     = "ELB"
 
   min_size              = var.ui_lt.min_size
@@ -29,7 +29,7 @@ resource "aws_autoscaling_group" "ui-ming2-asg" {
     version = "$Latest"
   }
 
-  target_group_arns     = [ aws_alb_target_group.ui-ming2-tg8080.arn ]
+  target_group_arns     = [ aws_alb_target_group.ui-b-tg80.arn ]
   health_check_type     = "ELB"
 
   min_size              = var.ui_lt.min_size
