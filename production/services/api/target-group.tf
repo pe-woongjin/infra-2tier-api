@@ -1,4 +1,4 @@
-resource "aws_alb_target_group" "api-a-tg8080"  {
+resource "aws_alb_target_group" "api-a-tg8080" {
   name          = "${local.resrc_prefix_nm}-api-a-tg8080"
   protocol      = "HTTP"
   port          = 8080
@@ -19,7 +19,7 @@ resource "aws_alb_target_group" "api-a-tg8080"  {
   }
 }
 
-resource "aws_alb_target_group" "api-b-tg8080"  {
+resource "aws_alb_target_group" "api-b-tg8080" {
   name          = "${local.resrc_prefix_nm}-api-b-tg8080"
   protocol      = "HTTP"
   port          = 8080

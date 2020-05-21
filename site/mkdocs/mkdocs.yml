@@ -1,0 +1,10 @@
+site_name: infra-2tier-services
+
+nav:
+  - Info: index.md
+  - Architecture: architecture.md
+  - Directory: directory.md
+  - Modules: modules.md
+  - Services: services.md
+
+theme: readthedocs

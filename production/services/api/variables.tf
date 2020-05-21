@@ -37,14 +37,36 @@ locals {
 
 
 # ######################
+# Subnet
+# ######################
+# api subnet
+variable "api_sn_list" {
+  description = "private api subnets"
+  type = list(map(string))
+  default = [
+    {
+      cidr_block = "10.40.30.0/24",
+      availability_zone = "ap-northeast-2a",
+      Name = "api-1a-sn"
+    },
+    {
+      cidr_block = "10.40.31.0/24",
+      availability_zone = "ap-northeast-2c",
+      Name = "api-1c-sn"
+    }
+  ]
+}
+
+
+# ######################
 # Launch Template
 # ######################
-# ui launch template
-variable "ui_lt" {
-  description = "ui launch template"
+# api launch template
+variable "api_lt" {
+  description = "api launch template"
   type = map(string)
-  default = {
-    "id" = "ami-04df341f89c111637"
+  default ={
+    "id" = "ami-08ccf8b9f68211181"
     "type" = "t3.small"
     "key_name" = "comp-prod-keypair"
     "min_size" = 0
@@ -56,8 +78,8 @@ variable "ui_lt" {
 # ######################
 # Output
 # ######################
-variable "ui-sn-id" {
-  description = "ui subnet id list"
+variable "pri-rt-id" {
+  description = "private route-table id"
 }
 
 
@@ -67,7 +89,7 @@ variable "ui-sn-id" {
 variable "vpc_id" {
   description = "ming-2t-apne2-prd-vpc id"
   type = string
-  default = "vpc-0cee52b990d29d6a2"
+  default = "vpc-0384233ccfa1f2ef7"
 }
 
 variable "ec2_role_name" {

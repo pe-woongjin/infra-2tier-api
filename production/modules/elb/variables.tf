@@ -38,7 +38,7 @@ variable "api-b-tg8080" {
 variable "alb_id" {
   description = "ming-2t-apne2-prd-alb id"
   type = string
-  default = "arn:aws:elasticloadbalancing:ap-northeast-2:144149479695:loadbalancer/app/ming-2t-apne2-prd-alb/5ddb2fda7c03ddab"
+  default = "arn:aws:elasticloadbalancing:ap-northeast-2:144149479695:loadbalancer/app/ming-2t-apne2-prd-alb/2443e864e9e0fee4"
 }
 
 variable "acm_arn" {

@@ -36,13 +36,13 @@ module "vpc" {
 module "api" {
   source = "./services/api"
 
-  # api subnet id list
-  api-sn-id = module.vpc.api-sn-id
+  # private route-table id
+  pri-rt-id = module.vpc.pri-rt-id
 }
 
 module "ui" {
   source = "./services/ui"
 
-  # ui subnet id list
-  ui-sn-id = module.vpc.ui-sn-id
+  # private route-table id
+  pri-rt-id = module.vpc.pri-rt-id
 }
