@@ -13,24 +13,3 @@ resource "aws_route_table" "pri-rt" {
     Environment   = var.environment
   }
 }
-
-resource "aws_route_table_association" "pri-rt-ac" {
-  count           = length(aws_subnet.pri-sn)
-
-  subnet_id       = aws_subnet.pri-sn.*.id[count.index]
-  route_table_id  = aws_route_table.pri-rt.*.id[0]
-}
-
-resource "aws_route_table_association" "ui-rt-ac" {
-  count           = length(aws_subnet.ui-sn)
-
-  subnet_id       = aws_subnet.ui-sn.*.id[count.index]
-  route_table_id  = aws_route_table.pri-rt.*.id[0]
-}
-
-resource "aws_route_table_association" "api-rt-ac" {
-  count           = length(aws_subnet.api-sn)
-
-  subnet_id       = aws_subnet.api-sn.*.id[count.index]
-  route_table_id  = aws_route_table.pri-rt.*.id[0]
-}
