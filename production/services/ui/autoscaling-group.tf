@@ -1,5 +1,5 @@
 resource "aws_autoscaling_group" "ui-a-asg" {
-  name                  = "${local.resrc_prefix_nm}-ui-a-asg"
+  name                  = "${var.resrc_prefix_nm}-ui-a-asg"
   vpc_zone_identifier   = [ aws_subnet.ui-sn[0].id, aws_subnet.ui-sn[1].id ]
 
   launch_template {
@@ -15,13 +15,13 @@ resource "aws_autoscaling_group" "ui-a-asg" {
 
   tag {
     key                 = "Name"
-    value               = "${local.resrc_prefix_nm}-ui-a-asg"
+    value               = "${var.resrc_prefix_nm}-ui-a-asg"
     propagate_at_launch = true
   }
 }
 
 resource "aws_autoscaling_group" "ui-b-asg" {
-  name                  = "${local.resrc_prefix_nm}-ui-b-asg"
+  name                  = "${var.resrc_prefix_nm}-ui-b-asg"
   vpc_zone_identifier   = [ aws_subnet.ui-sn[0].id, aws_subnet.ui-sn[1].id ]
 
   launch_template {
@@ -37,7 +37,7 @@ resource "aws_autoscaling_group" "ui-b-asg" {
 
   tag {
     key                 = "Name"
-    value               = "${local.resrc_prefix_nm}-ui-b-asg"
+    value               = "${var.resrc_prefix_nm}-ui-b-asg"
     propagate_at_launch = true
   }
 }

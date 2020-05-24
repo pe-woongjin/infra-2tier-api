@@ -3,7 +3,7 @@ data "aws_iam_role" "codedeploy-role" {
 }
 
 resource "aws_codedeploy_app" "api-cd" {
-  name              = "${local.resrc_prefix_nm}-api-cd"
+  name              = "${var.resrc_prefix_nm}-api-cd"
   compute_platform  = "Server"
 }
 

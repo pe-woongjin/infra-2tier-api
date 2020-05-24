@@ -1,5 +1,5 @@
 resource "aws_launch_template" "api-lt" {
-  name                    = "${local.resrc_prefix_nm}-api-lt"
+  name                    = "${var.resrc_prefix_nm}-api-lt"
   image_id                = var.api_lt.id
   key_name                = var.api_lt.key_name
   instance_type           = var.api_lt.type
@@ -15,7 +15,7 @@ resource "aws_launch_template" "api-lt" {
   tag_specifications {
     resource_type = "instance"
     tags = {
-      "Name" = "${local.resrc_prefix_nm}-api-lt"
+      "Name" = "${var.resrc_prefix_nm}-api-lt"
     }
   }
 }

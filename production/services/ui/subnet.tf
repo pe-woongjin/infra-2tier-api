@@ -7,7 +7,7 @@ resource "aws_subnet" "ui-sn" {
   map_public_ip_on_launch   = false
 
   tags = {
-    Name         = "${local.resrc_prefix_nm}-${lookup(var.ui_sn_list[count.index], "Name")}"
+    Name         = "${var.resrc_prefix_nm}-${lookup(var.ui_sn_list[count.index], "Name")}"
     Environment  = var.environment
   }
 }

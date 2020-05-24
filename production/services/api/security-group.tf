@@ -1,5 +1,5 @@
 resource "aws_security_group" "api-sg" {
-  name    = "${local.resrc_prefix_nm}-api-sg"
+  name    = "${var.resrc_prefix_nm}-api-sg"
   vpc_id  = var.vpc_id
 
   ingress {
@@ -26,7 +26,7 @@ resource "aws_security_group" "api-sg" {
   lifecycle { create_before_destroy = true }
 
   tags = {
-    Name          = "${local.resrc_prefix_nm}-api-sg"
+    Name          = "${var.resrc_prefix_nm}-api-sg"
     Environment   = var.environment
   }
 }

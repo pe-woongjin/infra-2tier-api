@@ -20,29 +20,70 @@ provider "aws" {
 module "elb" {
   source = "./modules/elb"
 
-  # ui target group
-  ui-a-tg80 = module.ui.ui-a-tg80
-  ui-b-tg80 = module.ui.ui-b-tg80
-
-  # api target group
+  # output
   api-a-tg8080 = module.api.api-a-tg8080
-  api-b-tg8080 = module.api.api-b-tg8080
+
+  # imported data
+  alb_id    = var.alb_id
+  acm_arn   = var.acm_arn
 }
 
 module "vpc" {
   source = "./modules/vpc"
+
+  # common
+  environment       = var.environment
+  resrc_prefix_nm   = local.resrc_prefix_nm
+
+  # resource
+  private_rt_tag_names = var.private_rt_tag_names
+
+  # imported data
+  vpc_id  = var.vpc_id
+  igw_id  = var.igw_id
+  nat_id  = var.nat_id
 }
 
 module "api" {
   source = "./services/api"
 
-  # private route-table id
-  pri-rt-id = module.vpc.pri-rt-id
+  # common
+  environment       = var.environment
+  resrc_prefix_nm   = local.resrc_prefix_nm
+
+  # resource
+  api_sn_list   = var.api_sn_list
+  api_lt        = var.api_lt
+  hosts         = var.hosts
+
+  # output
+  pri-rt-ids        = module.vpc.pri-rt-ids
+  alb-listener443   = module.elb.alb-listener443
+
+  # imported data
+  vpc_id          = var.vpc_id
+  ec2_role_name   = var.ec2_role_name
+  cd_role_name    = var.cd_role_name
 }
 
 module "ui" {
   source = "./services/ui"
 
-  # private route-table id
-  pri-rt-id = module.vpc.pri-rt-id
+  # common
+  environment       = var.environment
+  resrc_prefix_nm   = local.resrc_prefix_nm
+
+  # resource
+  ui_sn_list  = var.ui_sn_list
+  ui_lt       = var.ui_lt
+  hosts       = var.hosts
+
+  # output
+  pri-rt-ids        = module.vpc.pri-rt-ids
+  alb-listener443   = module.elb.alb-listener443
+
+  # imported data
+  vpc_id          = var.vpc_id
+  ec2_role_name   = var.ec2_role_name
+  cd_role_name    = var.cd_role_name
 }
