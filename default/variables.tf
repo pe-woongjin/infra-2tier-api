@@ -156,18 +156,6 @@ variable "nat_id" {
   default = "nat-0323b4761f722506f"
 }
 
-variable "ec2_role_name" {
-  description = "ec2 role name"
-  type = string
-  default = "codedeploy-ec2-role-profile"
-}
-
-variable "cd_role_name" {
-  description = "code deploy role name"
-  type = string
-  default = "codedeploy-role"
-}
-
 variable "alb_id" {
   description = "ming-2t-apne2-prd-alb id"
   type = string
@@ -178,4 +166,16 @@ variable "acm_arn" {
   description = "acm arn"
   type = string
   default = "arn:aws:acm:ap-northeast-2:144149479695:certificate/efc7a467-526d-4476-b91f-ef69f146c6a6"
+}
+
+variable "ec2_role_name" {
+  description = "ec2 role name"
+  type = string
+  default = "codedeploy-ec2-role-profile"
+}
+
+variable "cd_role_name" {
+  description = "code deploy role name"
+  type = string
+  default = "codedeploy-role"
 }
