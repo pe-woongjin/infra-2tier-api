@@ -63,12 +63,12 @@ variable "api_sn_list" {
   type = list(map(string))
   default = [
     {
-      cidr_block = "10.40.30.0/24",
+      cidr_block = "10.40.130.0/24",
       availability_zone = "ap-northeast-2a",
       Name = "api-1a-sn"
     },
     {
-      cidr_block = "10.40.31.0/24",
+      cidr_block = "10.40.131.0/24",
       availability_zone = "ap-northeast-2c",
       Name = "api-1c-sn"
     }
