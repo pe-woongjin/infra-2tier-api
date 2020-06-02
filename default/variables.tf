@@ -45,12 +45,12 @@ variable "ui_sn_list" {
   type = list(map(string))
   default = [
     {
-      cidr_block = "10.40.20.0/24",
+      cidr_block = "10.40.100.0/24",
       availability_zone = "ap-northeast-2a",
       Name = "ui-1a-sn"
     },
     {
-      cidr_block = "10.40.21.0/24",
+      cidr_block = "10.40.101.0/24",
       availability_zone = "ap-northeast-2c",
       Name = "ui-1c-sn"
     }
