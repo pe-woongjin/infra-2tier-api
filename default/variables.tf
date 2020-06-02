@@ -28,7 +28,7 @@ variable "environment" {
 variable "region_nm" {
   description = "aws region alias"
   type = string
-  default = "apne2"
+  default = "an2"
 }
 
 locals {
