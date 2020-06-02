@@ -141,25 +141,25 @@ variable "hosts" {
 variable "vpc_id" {
   description = "ming-2t-apne2-prd-vpc id"
   type = string
-  default = "vpc-0104e2982adb0b957"
+  default = "vpc-04002a9390d3d112e"
 }
 
 variable "igw_id" {
   description = "ming-2t-apne2-prd-vpc id"
   type = string
-  default = "igw-0be11fb844bb97b1e"
+  default = "igw-0801997143e3549d0"
 }
 
 variable "nat_id" {
   description = "ming-2t-apne2-prd-vpc id"
   type = string
-  default = "nat-0323b4761f722506f"
+  default = "nat-035534853618a74c1"
 }
 
 variable "alb_id" {
   description = "ming-2t-apne2-prd-alb id"
   type = string
-  default = "arn:aws:elasticloadbalancing:ap-northeast-2:144149479695:loadbalancer/app/ming-2t-apne2-prd-alb/facda55f3c4f836c"
+  default = "arn:aws:elasticloadbalancing:ap-northeast-2:144149479695:loadbalancer/app/ming-2t-apne2-prd-alb/ab4b5992c7c04f82"
 }
 
 variable "acm_arn" {
