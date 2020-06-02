@@ -28,7 +28,7 @@ variable "environment" {
 variable "region_nm" {
   description = "aws region alias"
   type = string
-  default = "an2"
+  default = "apne2"
 }
 
 locals {
@@ -103,7 +103,7 @@ variable "api_lt" {
     "type" = "t3.small"
     "key_name" = "comp-prod-keypair"
     "min_size" = 0
-    "max_size" = 2
+    "max_size" = 3
   }
 }
 
